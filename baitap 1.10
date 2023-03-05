@@ -1,0 +1,69 @@
+#include<stdio.h>
+#include<math.h>
+struct diem
+{
+    float x;
+    float y;
+};
+typedef struct diem Diem;
+void NhapDiem(Diem &);
+void XuatDiem(Diem);
+struct duongtron
+{
+    Diem I;
+    float R;
+};
+typedef struct duongtron DTron;
+void NhapDT(DTron &);
+void XuatDT(DTron);
+float TinhS(DTron);
+float TinhP(DTron);
+void NhapDiem(Diem &A)
+{
+    float temp;
+    printf("Nhap x: ");
+    scanf("%f", &temp);
+    A.x = temp;
+    printf("Nhap y: ");
+    scanf("%f", &temp);
+    A.y = temp;
+}
+void XuatDiem(Diem A)
+{
+    printf("(%f, %f)", A.x, A.y);
+}
+void NhapDuongTron(DTron &c)
+{
+    printf("Nhap tam: ");
+    NhapDiem(c.I);
+    float temp;
+    printf("Nhap ban kinh: ");
+    scanf("%f", &temp);
+    c.R = temp;
+}
+void XuatDuongTron(DTron c)
+{
+    printf("\nTam: ");
+    XuatDiem(c.I);
+    printf("\nBan kinh: %f", c.R);
+}
+float TinhDT(DTron c)
+{
+    return 3.14 * c.R * c.R;
+}
+float TinhCV(DTron c)
+{
+    return 2 * 3.14 * c.R;
+}
+int main()
+{
+    Diem A;
+    DTron c;
+    NhapDuongTron(c);
+    XuatDuongTron(c);
+    float S = TinhDT(c);
+    float P = TinhCV(c);
+    printf("\nDT hinh tron = %.3f", S );
+    printf("\nCV hinh tron = %.3f", P );
+    return 0;
+}
