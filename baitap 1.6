@@ -1,0 +1,39 @@
+#include<stdio>
+#include<conio>
+struct DaThuc
+{
+    float x[100];
+    int n;
+};
+typedef struct DaThuc DATHUC;
+
+void NhapDaThuc(DATHUC &);
+void XuatDaThuc(DATHUC);
+void NhapDaThuc(DATHUC &dt)
+{
+    printf("Nhap bac da thuc: "\n);
+    scanf("%d", &dt.x);
+    for(int i = dt.x; i >= 0; i--)
+    {
+        float temp;
+        printf("Nhap he so: "\n);
+        scanf("%f", &temp);
+        dt.a[i] = temp;
+    }
+}
+void XuatDaThuc(DATHUC dt)
+{
+    for(int i = dt.x; i >= 0; i--)
+    {
+        printf("%8.3fx^%d + ", dt.a[i], i);
+    }
+}
+int main()
+{
+    DATHUC dt;
+    NhapDaThuc(dt);
+    XuatDaThuc(dt);
+
+    getch();
+    return 0;
+}
